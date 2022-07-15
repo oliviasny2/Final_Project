@@ -12,9 +12,14 @@
 1. Cleaning the dataset
 a) Dropping columns applicant_race_2 through applicant_race_5 and coapplicant_race_2 through coapplicant_race_5
 b) respondent_id is index
-c) 
+c) add zeros to denied_reason_1 to indicate no denial (working)
+d) drop denied_reason_2 and denied_reason_3 (working)
 
+2. For segment 2 deliverables: Anu updating database (SQL); Alex, Victor, Olivia running machine learning models to determine most accurate model with small loss; Yaritza setting up presentation in Google Slides
 
+NOTE: plz wait until we have a cleaned version of dataset before SQL and tableau use.
+
+NOTE: hdma has an api
 
 
 # Rubric Double Check
@@ -25,25 +30,25 @@ c)
 
 1. Selected Topic: Mortgage Loan Approval Calculator
 2. Reason why topic is selected: Housing market is nuts, thus making it a topic of interest
-3. Description of data source:
-4. Questions we want data to answer:
+3. Description of data source: hdma 2017 loan data
+4. Questions we want data to answer: what variables most affect the approval of a mortgage
 
 ### Github
 
 1. Include README: Done
-2. README has description of the communication protocols:
+2. README has description of the communication protocols: see above
 3. Individual branches for each member: Done
-4. Four commits from each member:
+4. Four commits from each member: probably impossible for segment 1
 
 ### Machine Learning Model
 
-1. Take in data from provisional database
+1. Take in data from provisional database: done
 2. outputs labels for input data: loan approval is output and "several factors" for input
 
 ### Database:
 
 1. sample data that mimics expected final database structure or schema: hmda 2017 nationwide; lending club?
-2. Draft machine learning module is connected to the provisional database
+2. Draft machine learning module is connected to the provisional database: working
 
 ## Segment 2
 
