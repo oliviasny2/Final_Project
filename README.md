@@ -21,6 +21,15 @@ NOTE: plz wait until we have a cleaned version of dataset before SQL and tableau
 
 NOTE: hdma has an api
 
+### 7/19/2022 Session
+
+1. Additional Cleaning: All steps above were taken and...
+a) removing outliers from the data under assumption that our dataset it normally distributed
+b) 
+
+
+
+
 
 # Rubric Double Check
 
