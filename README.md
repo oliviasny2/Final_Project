@@ -29,7 +29,9 @@ a) removing outliers from the data under assumption that our dataset it normally
 2. Binning the data
 a) Using the Action Taken column, add new column that condenses codes 1 and 6 to "Accepted", 4 and 5 to "Other", and 2, 3, 7, and 8 to "Denied." Drop "Other," and then This will be used as our output variable 
 
-3. 
+3. Once cleaned, (no null values), we will have to split the dataset into smaller sample sizes because our computers are on the struggle bus bc there is 14mil rows.
+a) decide on a number of sample csv's with proportions of output column similar to population (large csv)
+
 
 
 
