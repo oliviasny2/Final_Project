@@ -29,9 +29,11 @@ a) removing outliers from the data under assumption that our dataset it normally
 2. Binning the data
 a) Using the Action Taken column, add new column that condenses codes 1 and 6 to "Accepted", 4 and 5 to "Other", and 2, 3, 7, and 8 to "Denied." Drop "Other," and then This will be used as our output variable 
 
-3. Once cleaned, (no null values), we will have to split the dataset into smaller sample sizes because our computers are on the struggle bus bc there is 14mil rows.
+3. Once cleaned, (no null values), we will split the dataset into a smaller proportional sample (bc 14mil rows is not working on our computers)
 a) decide on a number of sample csv's with proportions of output column similar to population (large csv)
+b) current potential options: race/ethnicity (combine columns??), income bracket (bin), population size (bin), or agency type
 
+4. In reference to the rubric, Anu is cleaning the model via SQL and will export new table for us to use. The data will be split into proportional groups based on choices (Alex?), run machine learning models (everyone?), reconvene and determine which models are working the best for the groups that we choose. What do we want to include in the presentation (Yartiza), create visualizations of our data in Tableau or something similar (Victor)
 
 
 
