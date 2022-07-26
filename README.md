@@ -35,6 +35,16 @@ b) current potential options: race/ethnicity (combine columns??), income bracket
 
 4. In reference to the rubric, Anu is cleaning the model via SQL and will export new table for us to use. The data will be split into proportional groups based on choices (Alex?), run machine learning models (everyone?), reconvene and determine which models are working the best for the groups that we choose. What do we want to include in the presentation (Yartiza), create visualizations of our data in Tableau or something similar (Victor)
 
+### 7/21/2022 Session
+
+1. Running into issues with github storage, so to combat, we will only create important csv files, which will include...
+a) machine learning model - proportional sample (based on action taken summary column)
+b) visualization portion - income and loan amount binned (for analysis of columns)
+c) hypothesis tests? - proportional sample (other variables yet to be determined like race, agency type, etc)
+NOTE: original file is too large to get it on here
+
+2. Create a cleaning file so that all that has to be done is run input file and it will automatically spit out a useful output file.
+
 
 
 
