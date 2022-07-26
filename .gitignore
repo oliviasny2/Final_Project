@@ -1,3 +1,10 @@
+# Do not push these files
+final_sample.csv
+hmda_2017_nationwide_all-records_codes.csv
+cleaned_action_summary.csv
+sample.csv
+sample_checkpoint.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
