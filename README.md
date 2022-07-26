@@ -56,7 +56,14 @@ NOTE: original file is too large to get it on here
 
 2. Create a cleaning file so that all that has to be done is run input file and it will automatically spit out a useful output file.
 
+### 7/26/2022 Session
 
+1. Preprocessed file is complete. We took a 1% sample of the file and are using that to run models on (the sample has >100,000 rows, so its big). 
+a) had to run the preprocessed file through two jupyter notebooks because I kept running into error issues: prop_sample.ipynb abd prop_sample_v2.ipynb
+
+2. Running models today, will submit deliverable 2 today.
+
+3.
 
 
 # Rubric Double Check
@@ -91,16 +98,19 @@ NOTE: original file is too large to get it on here
 
 ### Presentation
 
-1. Description of the data exploration phase of the project
-2. Description of the analysis phase of the project
-3. Begin drafting slides in google slides
+1. Description of the data exploration phase of the project: ok
+2. Description of the analysis phase of the project: ok
+3. Begin drafting slides in google slides: ok
 
 ### Github
 
-1. All code necessary to perfomr exploratory analysis in github
-2. Some code necessary to complete machine learning portion
+1. All code necessary to perfomr exploratory analysis in github: working
+2. Some code necessary to complete machine learning portion: ok
 
+### Machine Learning Model
 
+1. Description of preliminary data preprocessing: been taking notes above, however, to summarize, changed values in the columns where there are categorical variables, eliminated useless columns, reworked the state column to regions (US), created a categorizing variable with the action taken column (approved v denied).
+2. Description of preliminary feature engineering and preliminary feature selection, including their decision-making process: currently working with neural networks and random forest classifier
 
 
 
