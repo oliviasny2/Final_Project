@@ -7,6 +7,17 @@
 1. Using Slack for most communications
 2. Meeting Mondays at 7 to prepare ourselves for the weekly meetings and segment deliverables
 
+### Important Links
+
+1. location of dataset: <https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&records=all-records&field_descriptions=codes>
+2. Google Slides presentation:
+
+
+
+
+
+
+
 ### 7/14/2022 Session
 
 1. Cleaning the dataset
