@@ -110,7 +110,21 @@ a) had to run the preprocessed file through two jupyter notebooks because I kept
 ### Machine Learning Model
 
 1. Description of preliminary data preprocessing: been taking notes above, however, to summarize, changed values in the columns where there are categorical variables, eliminated useless columns, reworked the state column to regions (US), created a categorizing variable with the action taken column (approved v denied).
-2. Description of preliminary feature engineering and preliminary feature selection, including their decision-making process: currently working with neural networks and random forest classifier
 
+2. Description of preliminary feature engineering and preliminary feature selection, including their decision-making process: 
+
+a) columns eliminated: respondent_id, applicant_race_2, applicant_race_3, applicant_race_4, applicant_race_5, co_applicant_race_2, co_applicant_race_3, co_applicant_race_4, co_applicant_race_5, denial_reason_1, denial_reason_2, denial_reason_3, rate_spread, edit_status, sequence_number, application_date_indicator, msamd, as_of_year, county_code, census_tract_number
+
+b) reason behind column elimination: identifiers do not apply to machine learning models, applicant race 1 and coapplicant race 1 should be sufficient as there are too many null values in the other applicant and coapplicant race columns, denial reasons act as a predictor of the model so removed to provide better learning model, unnecessary columns, or columns with too many categorical variables that are not easily binned or can be explained by another column
+
+c) transformations: States to regions - converts state numbers to regions in order to better bin the data, all other categorical variables have values changed to reflect their actual meaning vs the number it is assigned. This also converts dtype to object, which makes it easier to separate out using OneHotEncoder. Action taken - converts the 8 variables into two variables which is more usable for categorical model. 
+
+d) removed null values from remaining rows bc it is immaterial (10mil values remaining)
+
+e) purchaser type removed in the machine learning model runs because it also acts like the denial reason - if it isn't there, than it is approved and falsely predicts model
+
+f) see prop_sample.ipynb and prop_sample_v2.ipynb for data preprocessing and feature selection and engineering
+
+3. Description of how data was split into training and testing sets: Olivia running neural network and Alex running random forest classifier
 
 
