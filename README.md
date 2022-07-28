@@ -127,4 +127,8 @@ f) see prop_sample.ipynb and prop_sample_v2.ipynb for data preprocessing and fea
 
 3. Description of how data was split into training and testing sets: Olivia running neural network and Alex running random forest classifier
 
+## Segment Three
+
+1.
+
 
