@@ -65,6 +65,13 @@ a) had to run the preprocessed file through two jupyter notebooks because I kept
 
 3.
 
+### 7/28/2022 Session
+
+1. Instructor confirms that database deliverables are met, and helps make integration more efficient by using Pickle.
+2. Anu imports pickle in database_integration.ipynb, re-runs the codes, and creates a .pkl output. Anu sends .pkl output and updated code to Slack channel.
+3. Yaritza plans to share presentation work with Anu to ramp up presentation portion of the project
+4. Team will submit complete deliverable 2 today
+5. 
 
 # Rubric Double Check
 
