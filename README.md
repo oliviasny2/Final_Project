@@ -10,7 +10,7 @@
 ### Important Links
 
 1. location of dataset: <https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&records=all-records&field_descriptions=codes>
-2. Google Slides presentation:
+2. Google Slides presentation: https://docs.google.com/presentation/d/10wGSHtKTgT1KMNkHMMkzDM7hiJk7xlth1AUYh64E-4w/edit?usp=sharing
 
 
 
