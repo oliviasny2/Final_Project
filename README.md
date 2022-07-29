@@ -67,11 +67,11 @@ a) had to run the preprocessed file through two jupyter notebooks because I kept
 
 ### 7/28/2022 Session
 
-1. Instructor confirms that database deliverables are met, and helps make integration more efficient by using Pickle.
-2. Anu imports pickle in database_integration.ipynb, re-runs the codes, and creates a .pkl output. Anu sends .pkl output and updated code to Slack channel.
-3. Yaritza plans to share presentation work with Anu to ramp up presentation portion of the project
-4. Team will submit complete deliverable 2 today
-5. 
+1. Instructor confirms that database deliverables are met, and helps make integration more efficient by recommending the use of Pickle to compress results and take less space/time.
+2. Anu imports pickle in database_integration.ipynb, re-runs the codes, and creates a .pkl output. Anu sends .pkl output and updated code to team in Slack channel. This completes the database integration portion of the project in segment 2.
+3. Yaritza plans to share presentation work with Anu to ramp up presentation portion of the project. She shared google_slides_presentation_in_progress with team, and showed samples of a deck template for use in the final presentation.
+4. Victor creates charts to display metrics like denial_reason & applicant_income, then begins work in Tableau to plot data and display results. 
+5. Team will submit complete deliverable 2 today
 
 # Rubric Double Check
 
