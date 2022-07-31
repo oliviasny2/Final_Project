@@ -172,7 +172,9 @@ b) First run through: 3 hidden layers, first two are relu, third is leaky relu, 
 
 c) Second run through: same as above, just removed the redundant columns (preprocess phase 2)
 
-d) Third run through: 
+d) Third run through: added a hidden layer, change all input/hidden layer activation functions to relu, same loss and accuracy as first run through
+
+e) Fourth run through: 
 
 3. Random Forest Classifier
 
