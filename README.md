@@ -178,6 +178,17 @@ e) Fourth run through:
 
 3. Random Forest Classifier
 
+a) We began by throwing a sample of 25,000 from our dataset into a logistic model targeting action_taken.  This resulted in an accuracy score of 0.55.  We at first replaced nulls in denial_reason_1 with zeroes so as to maintain approved rows when dropping nulls in our dataframe, but later realized that the inclusion of the column was incorrect since it implies our target.  The poor accuracy score even with a column that states whether a loan was approved or denied in the features and our desire to see feature importances led us to decide to switch from a logistic model to a random forest.
+
+b) Initial decision tree and random forest models ran on a random sample of ~100,000 out of the dataset with 1000 estimators, with accuracy scores of 0.86 and 0.89 respectively.  We used StandardScaler(), OneHotEncoder() and train_test_split() from  sklearn to transform our data.  Feature importances showed purchaser_type to be most important, but this was because it contained a label for loans not originated, which directly implies action_taken_summary as not being approved.
+
+c) In the rf2 notebook, the decision tree model was left behind since the random forest is stronger.  Dropping purchaser_type lowered the accuracy score to 0.80.  This led to applicant_income_000s and loan_amount_000s as the most prominent importances, which makes sense intuitively.
+
+d) At this point we started running models from the full dataset, so to get them to run successfully we had to impose stronger restrictions than on the samples.  This included restricting applications to those for home purchases only rather than refinancing or home improvements, and eliminating any rows with incomplete information that were not captured by dropping nulls.  This successfully reduced the dataset to 1.7M rows while allowing us to be more pointed in what we were analyzing.  The model was ran as RandomForestClassifier(max_depth =3, max_features = 3, n_estimators = 100) in the interest of making sure my computer could handle the operation.  At first, the model appeared very strong, with an accuracy score above 0.86, but the confusion matrix showed that this was because the model predicted every single application to be approved.  Other people online who encountered issues like this applied the argument class_weight="balanced", which adjusts weights to be inversely proportional to class frequencies.  Applying this argument dropped accuracy significantly to below 0.64, but I left it in as it did not feel great about the model predicting every application as approved.
+
+e) This model expanded the random forest to a max_depth of 10, a max_features of 5, and 250 estimators.  This improved accuracy to just above 0.66 with slightly better precision.  Feature importances were re-evaluated, with applicant_income_000s and loan_amount_000s still at the top and together representing about 30% of the variance.
+
+f) Other sources suggested that random forest models run best with a max_features set near the square root of the number of total features and without a limit for max_depth.  I applied these parameters with 500 estimators and the cell has been running for about two hours at this point.  I'll let it keep going for now but if it doesn't do anything by the end of the night I'll interrupt the cell and re-run it with 100 or 250 estimators and hope for something by morning.
 
 ### Dashboard
 
