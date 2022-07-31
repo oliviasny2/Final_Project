@@ -10,8 +10,8 @@
 ### Important Links
 
 1. location of dataset: <https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&records=all-records&field_descriptions=codes>
-2. Google Slides presentation:[Mortgage Loan Approval Calculator](<https://docs.google.com/presentation/d/10wGSHtKTgT1KMNkHMMkzDM7hiJk7xlth1AUYh64E-4w/edit?usp=sharing>)
-
+2. Google Slides presentation: [Mortgage Loan Approval Calculator](<https://docs.google.com/presentation/d/10wGSHtKTgT1KMNkHMMkzDM7hiJk7xlth1AUYh64E-4w/edit?usp=sharing>)
+3. Tableau Dashboad: 
 
 
 
