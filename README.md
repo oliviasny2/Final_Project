@@ -136,6 +136,36 @@ f) see prop_sample.ipynb and prop_sample_v2.ipynb for data preprocessing and fea
 
 ## Segment Three
 
-1.
+### Machine Learning Model
+
+1. Finally got the dataset together, running models of pickled data. 
+
+a) Initial Cleaning Phase 1: Removed as_of_year, applicant_race_2, applicant_race_3, applicant_race_4, applicant_race_5, co_applicant_race_2. co_applicant_race_3, co_applicant-race_4, co_applicant_race_5, denial_reason_2, denial_reason_3, rate_spread, edit_status, sequence_number, and applicantion_date_indicator bc of duplicity and obsolescense. 
+
+b) Intial Cleaning Phase 2: For columns agency_code, loan_type, property_type, loan_purpose, owner_occupancy, preapproval, action_taken, state_code, applicant_ethnicity, co_applicant_ethnicity, applicant_race_1, co_applicant_race_1, applicant_sex, co_applicant_sex, purchaser_type, hoepa_loan, and lien_status, change values to reflect categories and change dtype to object
+
+c) Intial Cleaning Phase 3: Transform state_code to Region for a more concise explanation. Also transform action_taken to action_taken_summary to create a column for approvals and denials
+
+d) Initial Cleaning Phase 4: Fill N/A values with 0 in columns msamd, applicant_income_000s, and denial_reason_1
+
+e) Initial Cleaning Phase 5: Drop any remaining rows with null values from the dataset. Retention: 97.98% of data points (13,997,124 rows retained out of 14,285,496 rows from the raw data)
+
+f) Transformation Phase 1: Export to pickle file and share with group via Google Drive
+
+g) Machine Model Cleaned Version Phase 1: Drop denial_reason_1, lien_status, hoepa_status, state_code, purchaser_type, respondent_id, and action_taken columns because of circular references or obsolescence. This was determined from prior models using sample data
+
+h) Machine Model Cleaned Version Phase 2: Drop rows that do not provide enough information to base the model off of. Only use "Home Purchase" from loan_purpose column, remove "Not Applicable" values from owner_occupancy, remove "Information not Provided" and "Not Applicable" values from applicant_sex, co_applicant_sex, applicant_ethnicity, and co_applicant_ethnicity columns, remove "Not Applicable" values from preapproval column, remove outliers from loan_amount_000s column, remove "2" values from action_taken_summary (anything other than approved or denied status).
+
+i) Machine Model Cleaned Version Summary: Retained about 1,700,356 datapoints/rows
+
+j) Transformation Phase 2: Export to new pickle file for use on machine learning models
+
+k) Preprocess Phase 1: Rows with dtype "object" transformed into categorical variables. These columns include agency_code, loan_type, property_type, owner_occupancy, preapproval, applicant_ethnicity, co_applicant_ethnicity, applicant_race_1, co_applicant_race_1, applicant_sex, co_applicant_sex, Region
+
+l) Preprocess Phase 2: Drop any exported categorical variable columns that are redundant
 
 
+### Dashboard
+
+1. Using Tableau, visuals created using the sample file (other file too large, but this has representative data)
+2. Link above in readme.
