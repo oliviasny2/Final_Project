@@ -4,6 +4,13 @@ hmda_2017_nationwide_all-records_codes.csv
 cleaned_action_summary.csv
 sample.csv
 sample_checkpoint.csv
+Applicant_info.csv
+cleaned_raws.csv
+final_pickle.pkl
+loan_info.csv
+new_master.csv
+pickled_raws.pkl
+connection_results.pkl
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
