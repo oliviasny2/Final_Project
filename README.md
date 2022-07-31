@@ -164,6 +164,18 @@ k) Preprocess Phase 1: Rows with dtype "object" transformed into categorical var
 
 l) Preprocess Phase 2: Drop any exported categorical variable columns that are redundant
 
+2. Neural Networks
+
+a) Using action_taken_summary as the target output, run the neural network...
+
+b) First run through: 3 hidden layers, first two are relu, third is leaky relu, output is sigmoid. Loss metric is binary_crossentropy, optimizer is adam, with metrics as accuracy. Using 50 epochs, the final output is loss: 0.3837 ccuracy: 0.8715
+
+c) Second run through: same as above, just removed the redundant columns (preprocess phase 2)
+
+d) Third run through: 
+
+3. Random Forest Classifier
+
 
 ### Dashboard
 
