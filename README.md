@@ -1,5 +1,6 @@
 # Final_Project
 
+<<<<<<< HEAD
 ## Notes
 
 ### Communication
@@ -194,3 +195,6 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 1. Using Tableau, visuals created using the sample file (other file too large, but this has representative data)
 2. Link above in readme.
+=======
+
+>>>>>>> refs/remotes/origin/Yaritza_branch
