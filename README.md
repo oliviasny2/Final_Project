@@ -134,6 +134,8 @@ f) see prop_sample.ipynb and prop_sample_v2.ipynb for data preprocessing and fea
 
 3. Description of how data was split into training and testing sets: Olivia running neural network and Alex running random forest classifier
 
+- In this segment, the RandomForestClassifier was used with a class_weight="balanced" argument to prevent the model from predicting only 1s for action_taken_summary, since our dataset is very imbalanced.  This was used in place of stratification.
+
 ## Segment Three
 
 ### Machine Learning Model
@@ -178,6 +180,8 @@ e) Fourth run through:
 
 3. Random Forest Classifier
 
+- Train-test split was stratified on our target y (action_taken_summary) in order to assist the model's detection of denials, as the unstratified, imbalanced data produced a classifier only predicting 1s.  This was tested against using the class_weight = "balanced argument in the classifier and against using the combination of the two.  The model with stratification only performed the best of the three.
+
 a) We began by throwing a sample of 25,000 from our dataset into a logistic model targeting action_taken.  This resulted in an accuracy score of 0.55.  We at first replaced nulls in denial_reason_1 with zeroes so as to maintain approved rows when dropping nulls in our dataframe, but later realized that the inclusion of the column was incorrect since it implies our target.  The poor accuracy score even with a column that states whether a loan was approved or denied in the features and our desire to see feature importances led us to decide to switch from a logistic model to a random forest.
 
 b) Initial decision tree and random forest models ran on a random sample of ~100,000 out of the dataset with 1000 estimators, with accuracy scores of 0.86 and 0.89 respectively.  We used StandardScaler(), OneHotEncoder() and train_test_split() from  sklearn to transform our data.  Feature importances showed purchaser_type to be most important, but this was because it contained a label for loans not originated, which directly implies action_taken_summary as not being approved.
@@ -194,3 +198,35 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 1. Using Tableau, visuals created using the sample file (other file too large, but this has representative data)
 2. Link above in readme.
+
+## Segment 4
+
+### Machine Learning Model
+
+#### Data Preprocessing, Feature Engineering, and Feature Selection
+
+- Throughout the project, we found multiple columns in the set that would directly state if a mortgage application was approved or denied.  Columns such as reasons for denial were removed.
+
+- After rows containing nulls were dropped, it was found that many columns contained entries such as "Not Applicable" or "Information not Provided", so these rows were removed as well.
+
+- We restricted loan_purpose to only home purchase applications to be more targeted in our approach
+
+- We removed outliers in requested loan amount so as to subset our data to the most "typical" homes (even though our remaining amounts still went well over $1M).  We thought it was best to perform this on requested loan amount only and not for applicant income.  This is because we believe that a relatively low number of high-income applicants tend to buy lots of homes and have a significant presence and effect.
+
+- Two categorical features were transformed from the original data: action_taken and state_code.  We remapped action_taken's labels to reduce down to approval, denial, or withdrawal/incompletion and then subsetted to only approvals and denials so we would have a binary target variable.  For state_code, we created a dictionary of states and their region in the country and remapped them to the region for use in one-hot-encoding, since having fifty categories for states would not be useful.
+
+- After one-hot-encoding, for any categories with only two labels, the second column was dropped.
+
+- When splitting the data into training and testing sets, the split was stratified on our target, action_taken_summary, to preserve the proportions in the resulting sets.
+
+- Because we had numerical variables with a large range, we applied sklearn's StandardScaler to our data.
+
+##### Random Forest Classifier
+
+- A random forest classifier was selected partially because we were interested in seeing the feature importances of the dataset.  The largest limitation of the model was in the amount of computing power it required compared to a simpler decision tree or a logistic model.
+
+- Model performance was tested across a variety of parameters.  The number of estimators was initially set at one hundred, and tests with a larger number did not provide significant improvement and also required much long run times, so one hundred was selected.  The classifier was initially set to a max_depth of three, but accuracy was very poor.  Online research suggested that not limiting the estimator depths was optimal, so the limit was removed and accuracy improved.  The maximum number of features per tree was tested at six, seven, eight, and nine features.  Models with the max_features paramet set to eight or nine performed the best and almost identically, so eight was decided on for efficiency.
+
+- Because our approvals heavily outweighed denials, the unstratified model predicted every entry as an approval.  To combat this, the classifier was retested by stratifying the train-test split on the target, balancing the class weight in the classifier, and combining both methods.  Using only stratification provided the best recall for denials and highest accuracy score.  Then, the classifier was tested with oversampled and undersampled resamplings of the data.  Out of these, random oversampling only showed a loss in accuracy of about .01, with significantly improved recall for denials (0.11 vs 0.05-0.07) while maintaining a recall of 0.97 (previously 0.99) for approvals.
+
+- We extracted feature importances from this model to see which variables were influential in the results of the applications and then used those features to build visualizations in Tableau.  Across all models, applicant income and requested loan amount were always the two most important features.
