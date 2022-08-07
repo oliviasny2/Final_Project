@@ -247,4 +247,13 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 - the only thing changed in these is the balancing function. Use of random oversampling, random undersampling, SMOTE, SMOTEENN, and Centroid Clusters (?)
 
+- SMOTE: ![image](https://user-images.githubusercontent.com/101011641/183313369-36af7c4f-5c43-4bed-9a6a-c5f6990cbf22.png)
+
+- Random Oversampling: ![image](https://user-images.githubusercontent.com/101011641/183313406-4ef991e2-8426-4d07-b742-87399e67a0e3.png)
+
+- Random Undersampling: ![image](https://user-images.githubusercontent.com/101011641/183313439-0b3ed8f6-400f-4964-a06f-64a69ae215f0.png)
+
+- SMOTEENN: ![image](https://user-images.githubusercontent.com/101011641/183313736-7ed93d67-bc77-4944-8acb-f2254582e20f.png)
+
+- Clustered Centroid: N/A ran into MemoryError 3 times. Not trying again
 
