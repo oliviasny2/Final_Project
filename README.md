@@ -233,4 +233,18 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 ##### Neural Network
 
-- During the fourth week, had to rework the neural networks to balance the dataset so that it doesn't automatically assume an approval for each of the 
+- During the fourth week, had to rework the neural networks to balance the dataset so that it doesn't automatically assume an approval for each of the test datapoints
+
+- Using random_state = 42 across all applicable code. y is stratified in the train-test split
+
+- Two hidden layers are used in the neural network with relu as the input and hidden activation functions and sigmoid as the output
+
+- loss = binary cross-entropy, the optimizer = adam, the accuracy = binary accuracy
+
+- y-predict takes any prediction and rounds to the nearest binary value (0 for denial and 1 for approval)
+
+- confusion matrix created using tensorflow to find precision and accuracy ratios 
+
+- the only thing changed in these is the balancing function. Use of random oversampling, random undersampling, SMOTE, SMOTEENN, and Centroid Clusters (?)
+
+
