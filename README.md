@@ -230,3 +230,7 @@ f) Other sources suggested that random forest models run best with a max_feature
 - Because our approvals heavily outweighed denials, the unstratified model predicted every entry as an approval.  To combat this, the classifier was retested by stratifying the train-test split on the target, balancing the class weight in the classifier, and combining both methods.  Using only stratification provided the best recall for denials and highest accuracy score.  Then, the classifier was tested with oversampled and undersampled resamplings of the data.  Out of these, random oversampling only showed a loss in accuracy of about .01, with significantly improved recall for denials (0.11 vs 0.05-0.07) while maintaining a recall of 0.97 (previously 0.99) for approvals.
 
 - We extracted feature importances from this model to see which variables were influential in the results of the applications and then used those features to build visualizations in Tableau.  Across all models, applicant income and requested loan amount were always the two most important features.
+
+##### Neural Network
+
+- During the fourth week, had to rework the neural networks to balance the dataset so that it doesn't automatically assume an approval for each of the 
