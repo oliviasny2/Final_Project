@@ -11,6 +11,7 @@ loan_info.csv
 new_master.csv
 pickled_raws.pkl
 connection_results.pkl
+final_csv.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
