@@ -257,3 +257,6 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 - Clustered Centroid: N/A ran into MemoryError 3 times. Not trying again
 
+- No simple way to extract feature importance from neural network, thus I will be making an analysis on the confusion matrix statistics
+
+
