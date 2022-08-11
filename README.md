@@ -9,9 +9,9 @@
 
 ### Important Links
 
-1. location of dataset: <https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&records=all-records&field_descriptions=codes>
-2. Google Slides presentation: [Mortgage Loan Approval Calculator](<https://docs.google.com/presentation/d/10wGSHtKTgT1KMNkHMMkzDM7hiJk7xlth1AUYh64E-4w/edit?usp=sharing>)
-3. Tableau Dashboad: <https://public.tableau.com/app/profile/victor.pesantez>
+1. Dataset: [Consumer Finance Protection Bureau](<https://www.consumerfinance.gov/data-research/hmda/historic-data/?geo=nationwide&records=all-records&field_descriptions=codes>) (2017 data)
+2. Google Slides presentation: [Mortgage Loan Approval Project](<https://docs.google.com/presentation/d/10wGSHtKTgT1KMNkHMMkzDM7hiJk7xlth1AUYh64E-4w/edit?usp=sharing>)
+3. Tableau Dashboard: [Mortgage Approvals Dashboard](<https://public.tableau.com/app/profile/victor.pesantez/viz/DashboardFinalProject_16601819787170/DashboardFinalProject?publish=yes>)
 
 
 
@@ -196,7 +196,7 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 ### Dashboard
 
-1. Using Tableau, visuals created using the sample file (other file too large, but this has representative data)
+1. Using Tableau, visuals created using final dataset after experimenting using sample file for ease of use
 2. Link above in readme.
 
 ## Segment 4
@@ -227,9 +227,19 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 - Model performance was tested across a variety of parameters.  The number of estimators was initially set at one hundred, and tests with a larger number did not provide significant improvement and also required much long run times, so one hundred was selected.  The classifier was initially set to a max_depth of three, but accuracy was very poor.  Online research suggested that not limiting the estimator depths was optimal, so the limit was removed and accuracy improved.  The maximum number of features per tree was tested at six, seven, eight, and nine features.  Models with the max_features paramet set to eight or nine performed the best and almost identically, so eight was decided on for efficiency.
 
-- Because our approvals heavily outweighed denials, the unstratified model predicted every entry as an approval.  To combat this, the classifier was retested by stratifying the train-test split on the target, balancing the class weight in the classifier, and combining both methods.  Using only stratification provided the best recall for denials and highest accuracy score.  Then, the classifier was tested with oversampled and undersampled resamplings of the data.  Out of these, random oversampling only showed a loss in accuracy of about .01, with significantly improved recall for denials (0.11 vs 0.05-0.07) while maintaining a recall of 0.97 (previously 0.99) for approvals.
+- Because our approvals heavily outweighed denials, the unstratified model predicted every entry as an approval.  To combat this, the classifier was retested by stratifying the train-test split on the target, balancing the class weight in the classifier, and combining both methods.  Using only stratification provided the best recall for denials and highest accuracy score (0.87).  Then, the classifier was tested with oversampled and undersampled resamplings of the data.  Out of these, random oversampling only showed a loss in accuracy of about .01, with significantly improved recall for denials (0.11 vs 0.05-0.07) while maintaining a recall of 0.97 (previously 0.99) for approvals.
 
 - We extracted feature importances from this model to see which variables were influential in the results of the applications and then used those features to build visualizations in Tableau.  Across all models, applicant income and requested loan amount were always the two most important features.
+
+- We attempted SMOTE oversampling, cluster centroids undersampling, and SMOTEENN combination sampling techniques on our data as well.
+
+- SMOTE provided an improved recall for denials of 0.20 with 0.82 overall accuracy.  Recall for approvals dropped to 0.92 while maintaining a 0.88 precision score.
+
+- SMOTEENN yielded 0.45 recall for denials, the highest out of all tested models by far.  This came at the cost of accuracy, which dropped to just under 0.70, as well as approval recall, which dropped to 0.74.  The top ten feature importances were much closer in value, but applicant income and requested loan amount remained at the top.
+
+- Cluster centroid resampling was unsuccessful.  SMOTEENN took a very long time to run, so I hoped that time would be all the cluster centroids technique needed, but it yielded memory errors stating that 200+ GiB of memory would need to be allotted for the resampling alone, and my computer is not that great so I didn't have a good workaround for this issue.
+
+- Because this project is centered around trends in mortgage approvals rather than detecting as many risky loans as possible, the SMOTE-adjusted model probably provides the best results out of the random forest models.  It maintains high precision and recall in approvals, with moderate precision and recall (out of tested models) for denials, so we are able to feel reasonably confident in our feature importances.
 
 ##### Neural Network
 
@@ -247,13 +257,21 @@ f) Other sources suggested that random forest models run best with a max_feature
 
 - the only thing changed in these is the balancing function. Use of random oversampling, random undersampling, SMOTE, SMOTEENN, and Centroid Clusters (?)
 
-- SMOTE: ![image](https://user-images.githubusercontent.com/101011641/183313369-36af7c4f-5c43-4bed-9a6a-c5f6990cbf22.png)
+- SMOTE: 
 
-- Random Oversampling: ![image](https://user-images.githubusercontent.com/101011641/183313406-4ef991e2-8426-4d07-b742-87399e67a0e3.png)
+ ![image](https://user-images.githubusercontent.com/101011641/183313369-36af7c4f-5c43-4bed-9a6a-c5f6990cbf22.png)
 
-- Random Undersampling: ![image](https://user-images.githubusercontent.com/101011641/183313439-0b3ed8f6-400f-4964-a06f-64a69ae215f0.png)
+- Random Oversampling: 
 
-- SMOTEENN: ![image](https://user-images.githubusercontent.com/101011641/183313736-7ed93d67-bc77-4944-8acb-f2254582e20f.png)
+ ![image](https://user-images.githubusercontent.com/101011641/183313406-4ef991e2-8426-4d07-b742-87399e67a0e3.png)
+
+- Random Undersampling: 
+
+ ![image](https://user-images.githubusercontent.com/101011641/183313439-0b3ed8f6-400f-4964-a06f-64a69ae215f0.png)
+
+- SMOTEENN: 
+
+ ![image](https://user-images.githubusercontent.com/101011641/183313736-7ed93d67-bc77-4944-8acb-f2254582e20f.png)
 
 - Clustered Centroid: N/A ran into MemoryError 3 times. Not trying again
 
